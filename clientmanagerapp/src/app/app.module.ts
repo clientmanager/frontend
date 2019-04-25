@@ -15,6 +15,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageUsersAddFormComponent } from './manage-users-add-form/manage-users-add-form.component';
 import { ManageUsersEditFormComponent } from './manage-users-edit-form/manage-users-edit-form.component';
 import { ManagePermissionsComponent } from './manage-permissions/manage-permissions.component';
+import { ManagePermissionsAddFormComponent } from './manage-permissions-add-form/manage-permissions-add-form.component';
+import { ManagePermissionsEditFormComponent } from './manage-permissions-edit-form/manage-permissions-edit-form.component';
 
 const appRoutes: Routes = [
   { path:"home", component: LoginComponent },
@@ -23,7 +25,10 @@ const appRoutes: Routes = [
   { path:"logout", component: LogoutComponent },
   { path:"manage-users", component: ManageUsersComponent},
   { path:"manage-user-add-form", component: ManageUsersAddFormComponent },
-  { path:"manage-user-edit-form", component: ManageUsersEditFormComponent }
+  { path:"manage-user-edit-form", component: ManageUsersEditFormComponent },
+  { path:"manage-permissions", component: ManagePermissionsComponent },
+  { path:"manage-permissions-add-form", component: ManagePermissionsAddFormComponent },
+  { path:"manage-permissions-edit-form", component: ManagePermissionsEditFormComponent }
   //{ path:"**", component: NotFoundComponent}
 ];
 
@@ -40,7 +45,9 @@ const appRoutes: Routes = [
     ManageUsersComponent,
     ManageUsersAddFormComponent,
     ManageUsersEditFormComponent,
-    ManagePermissionsComponent
+    ManagePermissionsComponent,
+    ManagePermissionsAddFormComponent,
+    ManagePermissionsEditFormComponent
   ],
   imports: [
     BrowserModule,

@@ -9,9 +9,21 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor() { }
 
-  private loadComponent = false;
+  private loadComponentUsers = false;
+  private loadComponentPermissions = false;
+  private loadComponentRoles = false;
+  private loadComponentTeams = false;
+  loadManageReset(){
+    this.loadComponentUsers = false;
+    this.loadComponentPermissions = false;
+    this.loadComponentRoles = false;
+    this.loadComponentTeams = false;
+  }
   loadManageUserComponent(){
-    this.loadComponent = true;
+    this.loadComponentUsers = true;
+  }
+  loadManagePermissionComponent(){
+    this.loadComponentPermissions = true;
   }
 
   private changeActive(){

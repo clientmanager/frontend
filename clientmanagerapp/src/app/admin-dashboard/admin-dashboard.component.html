@@ -10,10 +10,10 @@
             </a>
           </li>
           <li  class="nav-item">
-              <a id ="manage_users" class="nav-item nav-link" (click) = "loadManageUserComponent()">Manage Users</a>
+              <a id ="manage_users" class="nav-item nav-link" (click) = "loadManageReset(); loadManageUserComponent()">Manage Users</a>
           </li>
           <li class="nav-item">
-              <a id ="" class="nav-item nav-link" routerLink="/user" routerLinkActive="active">Manage Permissions</a>
+            <a id ="manage_permissions" class="nav-item nav-link" (click) = "loadManageReset(); loadManagePermissionComponent()">Manage Permissions</a>
           </li>
           <li class="nav-item">
               <a class="nav-item nav-link" routerLink="/user" routerLinkActive="active">Manage Roles</a>
@@ -31,8 +31,11 @@
         <div class="btn-toolbar mb-2 mb-md-0">
         </div>
       </div>
-      <div *ngIf = 'loadComponent'>
+      <div *ngIf = 'loadComponentUsers'>
           <app-manage-users></app-manage-users>
+      </div>
+      <div *ngIf = 'loadComponentPermissions'>
+        <app-manage-permissions></app-manage-permissions>
       </div>
     </main>
   </div>
