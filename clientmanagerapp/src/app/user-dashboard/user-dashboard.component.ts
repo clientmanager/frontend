@@ -9,6 +9,22 @@ export class UserDashboardComponent implements OnInit {
 
   constructor() { }
 
+  private loadComponentProfile = false;
+  private loadComponentViewTeams = false;
+
+  loadUserReset(){
+    this.loadComponentProfile = false;
+    this.loadComponentViewTeams = false;
+  }
+
+  loadComponentProfileComponent(){
+    this.loadComponentProfile = true;
+  }
+
+  loadComponentViewTeamsComponent(){
+    this.loadComponentViewTeams = true;
+  }
+
   ngOnInit() {
   }
 

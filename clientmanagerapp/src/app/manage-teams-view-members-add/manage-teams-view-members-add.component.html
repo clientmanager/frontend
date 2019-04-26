@@ -1,0 +1,45 @@
+<div class="container">
+  <div>
+    <h3>Search for users</h3>
+  </div>
+  <div class="input-group input-group-lg mb-3">
+    <input type="text" class="form-control" placeholder="Enter User ID" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="searchUser()" >{{button_name}}</button>
+    </div>
+  </div>
+</div>
+
+<div class="results" *ngIf="show_result">
+    <div class="container">
+        <h3>Search Results</h3>
+        <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1,001</td>
+              <td>Lorem</td>
+              <td>dolor</td>
+              <td>
+                  <div class="form-group">
+                      <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Role 1</option>
+                        <option>Role 2</option>
+                      </select>
+                    </div>
+              </td>
+              <td><button type="add-button" class="btn btn-primary"  routerLink="/" routerLinkActive="active" >Add</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>

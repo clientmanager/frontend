@@ -1,3 +1,33 @@
-<p>
-  user-dashboard works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a id ="manage_users" class="nav-item nav-link active" (click) = "loadUserReset()">Dashboard</a>
+          </li>
+          <li  class="nav-item">
+              <a id ="manage_users" class="nav-item nav-link" (click) = "loadUserReset(); loadComponentProfileComponent()">View Profile</a>
+          </li>
+          <li class="nav-item">
+            <a id ="manage_permissions" class="nav-item nav-link" (click) = "loadUserReset(); loadComponentViewTeamsComponent()">View Teams</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">User Dashboard</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+      </div>
+      <div *ngIf = 'loadComponentProfile'>
+          <app-user-dashboard-view-profile></app-user-dashboard-view-profile>
+      </div>
+      <div *ngIf = 'loadComponentViewTeams'>
+        <app-user-dashboard-view-teams></app-user-dashboard-view-teams>
+      </div>
+    </main>
+  </div>
+</div>
