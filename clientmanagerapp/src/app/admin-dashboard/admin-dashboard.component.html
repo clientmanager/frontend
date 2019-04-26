@@ -16,10 +16,10 @@
             <a id ="manage_permissions" class="nav-item nav-link" (click) = "loadManageReset(); loadManagePermissionComponent()">Manage Permissions</a>
           </li>
           <li class="nav-item">
-              <a class="nav-item nav-link" routerLink="/user" routerLinkActive="active">Manage Roles</a>
+            <a id ="manage_roles" class="nav-item nav-link" (click) = "loadManageReset(); loadManageRolesComponent()">Manage Roles</a>
           </li>
           <li class="nav-item">
-              <a class="nav-item nav-link" routerLink="/user" routerLinkActive="active">Manage Teams</a>
+            <a id ="manage_teams" class="nav-item nav-link" (click) = "loadManageReset(); loadManageTeamsComponent()">Manage Teams</a>
           </li>
         </ul>
       </div>
@@ -36,6 +36,12 @@
       </div>
       <div *ngIf = 'loadComponentPermissions'>
         <app-manage-permissions></app-manage-permissions>
+      </div>
+      <div *ngIf = 'loadComponentRoles'>
+        <app-manage-roles></app-manage-roles>
+      </div>
+      <div *ngIf = 'loadComponentTeams'>
+        <app-manage-teams></app-manage-teams>
       </div>
     </main>
   </div>

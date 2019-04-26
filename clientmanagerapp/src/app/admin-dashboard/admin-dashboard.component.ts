@@ -25,6 +25,12 @@ export class AdminDashboardComponent implements OnInit {
   loadManagePermissionComponent(){
     this.loadComponentPermissions = true;
   }
+  loadManageRolesComponent(){
+    this.loadComponentRoles= true;
+  }
+  loadManageTeamsComponent(){
+    this.loadComponentTeams= true;
+  }
 
   private changeActive(){
     document.getElementById("manage_users").classList.add("active")

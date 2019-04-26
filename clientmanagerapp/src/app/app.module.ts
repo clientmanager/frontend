@@ -17,6 +17,12 @@ import { ManageUsersEditFormComponent } from './manage-users-edit-form/manage-us
 import { ManagePermissionsComponent } from './manage-permissions/manage-permissions.component';
 import { ManagePermissionsAddFormComponent } from './manage-permissions-add-form/manage-permissions-add-form.component';
 import { ManagePermissionsEditFormComponent } from './manage-permissions-edit-form/manage-permissions-edit-form.component';
+import { ManageRolesComponent } from './manage-roles/manage-roles.component';
+import { ManageRolesAddFormComponent } from './manage-roles-add-form/manage-roles-add-form.component';
+import { ManageRolesEditFormComponent } from './manage-roles-edit-form/manage-roles-edit-form.component';
+import { ManageTeamsComponent } from './manage-teams/manage-teams.component';
+import { ManageTeamsAddFormComponent } from './manage-teams-add-form/manage-teams-add-form.component';
+import { ManageTeamsEditFormComponent } from './manage-teams-edit-form/manage-teams-edit-form.component';
 
 const appRoutes: Routes = [
   { path:"home", component: LoginComponent },
@@ -28,7 +34,13 @@ const appRoutes: Routes = [
   { path:"manage-user-edit-form", component: ManageUsersEditFormComponent },
   { path:"manage-permissions", component: ManagePermissionsComponent },
   { path:"manage-permissions-add-form", component: ManagePermissionsAddFormComponent },
-  { path:"manage-permissions-edit-form", component: ManagePermissionsEditFormComponent }
+  { path:"manage-permissions-edit-form", component: ManagePermissionsEditFormComponent },
+  { path:"manage-roles", component: ManageRolesComponent  },
+  { path:"manage-roles-add-form", component: ManageRolesAddFormComponent  },
+  { path:"manage-roles-edit-form", component: ManageRolesEditFormComponent},
+  { path:"manage-teams", component: ManageTeamsComponent},
+  { path:"manage-teams-add-form", component: ManageTeamsAddFormComponent},
+  { path:"manage-teams-edit-form", component: ManageTeamsEditFormComponent}
   //{ path:"**", component: NotFoundComponent}
 ];
 
@@ -47,7 +59,13 @@ const appRoutes: Routes = [
     ManageUsersEditFormComponent,
     ManagePermissionsComponent,
     ManagePermissionsAddFormComponent,
-    ManagePermissionsEditFormComponent
+    ManagePermissionsEditFormComponent,
+    ManageRolesComponent,
+    ManageRolesAddFormComponent,
+    ManageRolesEditFormComponent,
+    ManageTeamsComponent,
+    ManageTeamsAddFormComponent,
+    ManageTeamsEditFormComponent
   ],
   imports: [
     BrowserModule,
