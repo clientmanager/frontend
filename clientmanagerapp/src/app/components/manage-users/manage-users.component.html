@@ -1,0 +1,32 @@
+<h3>Manage Users</h3>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Gender</th>
+        <th>Team | Role</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" >
+        <td>{{user.id}}</td>
+        <td>{{user.fname}}</td>
+        <td>{{user.mname}}</td>
+        <td>{{user.lname}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.jobs}}</td>
+        <td><button type="button" class="btn btn-success"  (click)="updateUser(user)"  routerLinkActive="active" >Edit</button> &nbsp;<button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button> </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="add-button">
+      <button type="button" class="btn btn-primary" routerLink="/manage-user-add-form" routerLinkActive="active">Add new user</button>
+  </div>
+</div>

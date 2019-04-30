@@ -1,0 +1,46 @@
+
+  <div class="form-content">
+    <div class="container-wrapper container d-flex justify-content-center align-items-center login-spacing">
+        <div class="form-wrapper text-center">
+          <h2 class="text-center">Add New Permission</h2>
+          <form>
+              <div class="form-group">
+                <input type="hidden" class="form-control" [(ngModel)]="permission.id" id="id" name="id" placeholder="Enter ID">
+              </div>
+    
+              <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="permission.permissionname" id="permissionname" name="permissionname" placeholder="Enter Name">
+              </div>
+    
+              <div class="form-group">
+                  <textarea class="form-control" [(ngModel)]="permission.description" id="description" name="description" placeholder="Enter Description" rows="3"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Pernission Types</label>
+                </div>
+                <select class="custom-select" [(ngModel)]="permission.permissiontype" id="permissiontype" name="permissiontype">
+                  <option class="dropdown-item" value="ROLE">Role</option>
+                  <option class="dropdown-item" value="GROUP">Group</option>
+                </select>
+              </div>
+
+              <!-- <div class="btn-group dropleft">
+                <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Permission Type
+                </button>
+                <div class="dropdown-menu">
+                  <option class="dropdown-item" [(ngModel)]="permission.permissiontype" id="permissiontype" name="permissiontype" value="1">Group</option>
+                  <option class="dropdown-item" [(ngModel)]="permission.permissiontype" id="permissiontype" name="permissiontype" value="2">Role</option>
+                </div>
+              </div> -->
+              
+              <div class="add-button">
+                <button type="submit" class="btn btn-primary" (click)="createPermission()">Submit</button>
+              </div>
+            </form>
+        </div>
+      </div>
+  
+    </div>

@@ -1,0 +1,57 @@
+
+  <div class="form-content">
+      <div class="container-wrapper container d-flex justify-content-center align-items-center login-spacing">
+          <div class="form-wrapper text-center">
+            <h2 class="text-center">Edit Role</h2>
+            <form>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" [(ngModel)]="role.id" id="id" name="id" placeholder="Enter ID">
+                </div>
+      
+                <div class="form-group">
+                  <input type="text" class="form-control" [(ngModel)]="role.rolename" id="name" name="rolename" placeholder="Enter Name">
+                </div>
+      
+                <div class="form-group">
+                    <textarea class="form-control" id="description" [(ngModel)]="role.description" name="description" placeholder="Enter Description" rows="3"></textarea>
+                </div>
+  
+                <!-- <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">List of permissions</label>
+                  </div>
+                  <select  class="custom-select" [(ngModel)]="role.rolepermissions" id="rolepermissions" name="rolepermissions">
+                    <option class="dropdown-item" value="{{permission}}" *ngFor="let permission of permissions" >{{permission.permissionname}}</option>
+                  </select>
+                </div> -->
+  
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Role Type</label>
+                  </div>
+                  <select class="custom-select" [(ngModel)]="role.roletype" id="roletype" name="roletype">
+                    <option class="dropdown-item" value="SYSTEM">SYSTEM</option>
+                    <option class="dropdown-item" value="PROJECT">PROJECT</option>
+                  </select>
+                </div>
+  
+                &nbsp;&nbsp;
+  
+                <label>Status: &nbsp;</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" [(ngModel)]="role.active" id="active" name="active" value="true" checked>
+                    <label class="form-check-label" for="active">Active</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" [(ngModel)]="role.active" id="inactive" name="active" value="false">
+                    <label class="form-check-label" for="inactive">Inactive</label>
+                  </div>
+  
+                  <div class="add-button">
+                    <button type="submit" class="btn btn-primary" (click)="updateRole()">Submit</button>
+                  </div>
+              </form>
+          </div>
+        </div>
+    
+      </div>

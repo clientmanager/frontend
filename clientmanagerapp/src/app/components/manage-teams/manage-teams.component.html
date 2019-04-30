@@ -1,0 +1,32 @@
+<h3>Manage Teams</h3>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Permissions</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of teams" >
+        <td>{{team.id}}</td>
+        <td>{{team.groupname}}</td>
+        <td>{{team.description}}</td>
+        <td>{{team.active}}</td>
+        <div>
+            <span *ngFor="let permission of team.grouppermissions; let isLast=last">
+                {{permission.permissionname}}{{isLast ? '' : ', '}}
+             </span>
+          </div>
+        <td><button type="button" class="btn btn-primary"  routerLink="/manage-teams-view-members" routerLinkActive="active">View members</button> &nbsp; <button type="button" class="btn btn-primary"  (click)="viewTeamPermissions(team)" routerLinkActive="active" >View Permissions</button> &nbsp; <button type="button" class="btn btn-success"  (click)="updateTeam(team)" routerLinkActive="active" >Edit</button> &nbsp;<button type="button" (click)="deleteTeam(team.id)" class="btn btn-danger">Delete</button> </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="add-button">
+      <button type="button" class="btn btn-primary" routerLink="/manage-teams-add-form" routerLinkActive="active">Add new team</button>
+  </div>
+</div>

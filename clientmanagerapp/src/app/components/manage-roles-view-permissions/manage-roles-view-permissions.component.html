@@ -1,0 +1,52 @@
+<h3>Manage Permissions for {{role.rolename}}</h3>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let permission of permissions" >
+        <td>{{permission.id}}</td>
+        <td>{{permission.permissionname}}</td>
+        <td>{{permission.description}}</td>
+        <td>{{permission.permissiontype}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="removeRolePermission(role.id, permission.id)">Revoke</button> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Add More Permissions for {{role.rolename}}</h3>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let allPermission of allPermissions">
+            <!-- <span *ngFor="let permission of permissions" >
+              <span *ngIf="allPermission.id != permission.id"> -->
+                <td>{{allPermission.id}}</td>
+                <td>{{allPermission.permissionname}}</td>
+                <td>{{allPermission.description}}</td>
+                <td>{{allPermission.permissiontype}}</td>
+                <td><button type="button" class="btn btn-primary" (click)="addRolePermission(role.id, allPermission.id)">Add</button> </td>
+              <!-- </span>
+            </span> -->
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  

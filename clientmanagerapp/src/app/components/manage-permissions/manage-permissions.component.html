@@ -1,0 +1,26 @@
+<h3>Manage Permissions</h3>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let permission of permissions" >
+        <td>{{permission.id}}</td>
+        <td>{{permission.permissionname}}</td>
+        <td>{{permission.description}}</td>
+        <td>{{permission.permissiontype}}</td>
+        <td><button type="button" class="btn btn-success"  (click)="updatePermission(permission)" routerLinkActive="active" >Edit</button> &nbsp;<button type="button" class="btn btn-danger" (click)="deletePermission(permission.id)">Delete</button> </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="add-button">
+      <button type="button" class="btn btn-primary" routerLink="/manage-permissions-add-form" routerLinkActive="active">Add new permission</button>
+  </div>
+</div>
