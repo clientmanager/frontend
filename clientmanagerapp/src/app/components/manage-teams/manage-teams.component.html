@@ -22,7 +22,7 @@
                 {{permission.permissionname}}{{isLast ? '' : ', '}}
              </span>
           </div>
-        <td><button type="button" class="btn btn-primary"  routerLink="/manage-teams-view-members" routerLinkActive="active">View members</button> &nbsp; <button type="button" class="btn btn-primary"  (click)="viewTeamPermissions(team)" routerLinkActive="active" >View Permissions</button> &nbsp; <button type="button" class="btn btn-success"  (click)="updateTeam(team)" routerLinkActive="active" >Edit</button> &nbsp;<button type="button" (click)="deleteTeam(team.id)" class="btn btn-danger">Delete</button> </td>
+        <td><button type="button" class="btn btn-primary" (click)="viewTeamMembers(team)" routerLinkActive="active">View members</button> &nbsp; <button type="button" class="btn btn-primary"  (click)="viewTeamPermissions(team)" routerLinkActive="active" >View Permissions</button> &nbsp; <button type="button" class="btn btn-success"  (click)="updateTeam(team)" routerLinkActive="active" >Edit</button> &nbsp;<button type="button" (click)="deleteTeam(team.id)" class="btn btn-danger">Delete</button> </td>
       </tr>
     </tbody>
   </table>

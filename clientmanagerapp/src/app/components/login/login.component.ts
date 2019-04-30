@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  username = 'user';
+  password = 'password';
+  errorMessage = 'Invalid Credentials';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+
+  handleLogin(){
+    console.log(this.username);
   }
 
 }

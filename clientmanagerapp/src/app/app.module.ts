@@ -40,6 +40,7 @@ const appRoutes: Routes = [
   { path:"user", component: UserDashboardComponent },
   { path:"admin", component: AdminDashboardComponent },
   { path:"logout", component: LogoutComponent },
+  { path: "login", component: LoginComponent},
   { path:"manage-users", component: ManageUsersComponent},
   { path:"manage-user-add-form", component: ManageUsersAddFormComponent },
   { path:"manage-user-edit-form", component: ManageUsersEditFormComponent },

@@ -27,6 +27,11 @@ export class ManageTeamsComponent implements OnInit {
       });
   }
 
+  viewTeamMembers(team): void{
+    this.service.teamSetter(team);
+    this._router.navigate(["/manage-teams-view-members"]);
+  }
+
   viewTeamPermissions(team): void{
     this.service.teamSetter(team);
     this._router.navigate(["/manage-teams-view-permissions"]);
