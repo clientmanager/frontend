@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-found.component.css']
 })
 export class NotFoundComponent implements OnInit {
-
+  errorMessage = ' An Error has Occured! Pray for help!'
   constructor() { }
 
   ngOnInit() {

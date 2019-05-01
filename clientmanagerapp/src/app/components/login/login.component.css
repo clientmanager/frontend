@@ -13,3 +13,7 @@ h2 {
 .login-spacing{
     margin-top: 50px
 }
+
+small {
+    color: red;
+}

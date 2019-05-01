@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Team } from '../../sharedclasses/team';
+import { AdminService } from '../../services/admin.service';
+import { Router } from '@angular/router';
+import { User } from '../../sharedclasses/user';
 
 @Component({
   selector: 'app-manage-teams-view-members-add',
@@ -9,28 +13,70 @@ export class ManageTeamsViewMembersAddComponent implements OnInit {
 
   public show_result : boolean = false;
   public button_name : any = 'Show Search Results!';
+  public allUsers: any = [];
+  public allRoles: any = [];
+  team = new Team();
+  users: any = [];
+  searchId = "";
+  selectedRoleId: any;
 
-  constructor() { }
+  constructor(private service: AdminService, private _router: Router) { }
 
   ngOnInit() {
+    this.team = this.service.teamGetter();
+    this.allUsers = this.getAllUsers();
+    this.allRoles = this.getAllRoles();
   }
 
-  searchUser(){
-    this.show_result=!this.show_result;
-    
-    //create User object from SQL query
-    //If User object == null, return "not found" message and show_result = FALSE
-    //If User Object != null, populate div in .htm and show_result = TRUE
+  getAllUsers(): void {
+    console.log("inside getAllUsers()");
+    this.service.getAllUsers()
+      .subscribe((data) => {
+        this.allUsers = data;
+        console.log(data);
+      });
+  }
 
+  getAllRoles(): void{
+    this.service.getAllroles()
+      .subscribe((data) => {
+        this.allRoles = data;
+        console.log(data);
+      });
+  }
 
-    console.log("you tickled me")
-    if(this.show_result){
-      this.button_name = "Hide Search Results!"
-      
-    }
-    else{
-      this.button_name = "Show Search Results!"
+  getUserById(searchId): void{
+    this.service.getUserById(searchId)
+      .subscribe((data) => {
+        this.users.push(data);
+        console.log(data);
+      });
+  }
+
+  changeSelectedRoleId(roleId){
+    if(roleId != null){
+      this.selectedRoleId = roleId;
     }
   }
+
+  searchUser(searchId): void{
+    //this.show_result = !this.show_result;
+    this.team = this.service.teamGetter();
+    this.show_result = true;
+    this.getUserById(searchId);
+  }
+
+  createJob(userId, teamId): void{
+    // alert(userId + " " + teamId + " " + this.selectedRoleId);
+    this.service.createJob(userId, teamId, this.selectedRoleId)
+    .subscribe((response)=>{
+      console.log(response);
+    }, (error) =>{
+      console.log(error);
+    });
+  this._router.navigate(['/admin']);
+  }
+
+  
 
 }

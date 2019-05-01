@@ -12,17 +12,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1,001</td>
-        <td>Lorem</td>
-        <td>dolor</td>
-        <td>sit</td>
+      <tr *ngFor="let teamMember of teamMembers" >
+        <td>{{teamMember.id}}</td>
+        <td>{{teamMember.fname}} {{teamMember.mname}} {{teamMember.lname}}</td>
+        <td>{{teamMember.username}}</td>
+        <td>empty</td>
         <td><button type="button" class="btn btn-success"  routerLink="/" routerLinkActive="active" >Edit Role</button> &nbsp;<button type="button" class="btn btn-danger">Remove from team</button> </td>
       </tr>
     </tbody>
   </table>
   <div class="add-button">
-    <button type="button" class="btn btn-primary" routerLink="/manage-teams-view-members-add" routerLinkActive="active">Add new members</button>
+    <button type="button" class="btn btn-primary" (click)="viewTeamMembersAdd(team)" routerLinkActive="active">Add new members</button>
   </div>
 </div>
 

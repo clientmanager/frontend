@@ -1,13 +1,15 @@
 <div class="container">
   <div>
-    <h3>Search for users</h3>
+    <h3>Search for users to add to {{team.groupname}}</h3>
   </div>
-  <div class="input-group input-group-lg mb-3">
-    <input type="text" class="form-control" placeholder="Enter User ID" aria-label="Recipient's username" aria-describedby="button-addon2">
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="searchUser()" >{{button_name}}</button>
+  <form>
+    <div class="input-group input-group-lg mb-3">
+      <input id="searchId" name="searchId" [(ngModel)] = "searchId" type="text" class="form-control" placeholder="Enter User ID" >
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" (click)="searchUser(searchId)" >{{button_name}}</button>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
 
 <div class="results" *ngIf="show_result">
@@ -25,19 +27,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>Lorem</td>
-              <td>dolor</td>
+            <tr *ngFor="let user of users" >
+              <td>{{user.id}}</td>
+              <td>{{user.fname}} {{user.mname}} {{user.lname}}</td>
+              <td>{{user.username}}</td>
               <td>
                   <div class="form-group">
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Role 1</option>
-                        <option>Role 2</option>
+                      <select class="form-control" (change)="changeSelectedRoleId($event.target.value)">
+                        <option value="" selected disabled hidden>Please Select...</option>
+                        <option *ngFor="let allRole of allRoles" [value]="allRole.id" >{{allRole.rolename}}</option>
+                        <!-- <option value="{{allRole.id}}">{{allRole.rolename}}</option> -->
                       </select>
                     </div>
               </td>
-              <td><button type="add-button" class="btn btn-primary"  routerLink="/" routerLinkActive="active" >Add</button></td>
+              <td><button id="addButton" type="submit" class="btn btn-primary"  (click)="createJob(user.id, team.id)" routerLinkActive="active">Add to Team</button></td>
             </tr>
           </tbody>
         </table>

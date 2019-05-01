@@ -1,6 +1,6 @@
 <div class="container-wrapper container d-flex justify-content-center align-items-center login-spacing">
     <div class="form-wrapper text-center">
-      <small>{{errorMessage}}</small>
+      <small *ngIf='invalidLogin'>{{errorMessage}}</small>
       <h2 class="text-center">Login</h2>
       <form>
           <div class="form-group">

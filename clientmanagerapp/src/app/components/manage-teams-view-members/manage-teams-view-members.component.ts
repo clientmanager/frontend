@@ -10,12 +10,27 @@ import { Router } from '@angular/router';
 })
 export class ManageTeamsViewMembersComponent implements OnInit {
   team = new Team();
+  public teamMembers: any = [];
   public jobs = [];
 
   constructor(private service: AdminService, private _router: Router) { }
 
   ngOnInit() {
     this.team = this.service.teamGetter();
+    this.teamMembers = this.getAllTeamMembers();
   }
+
+  getAllTeamMembers(): void {
+    this.service.getAllTeamMembers(this.team.groupname)
+      .subscribe((data) => {
+        this.teamMembers = data;
+        console.log(data);
+      });
+  }
+
+ viewTeamMembersAdd(team){
+  this.service.teamSetter(team);
+  this._router.navigate(["/manage-teams-view-members-add"]);
+ }
 
 }

@@ -21,7 +21,14 @@
         <td>{{user.lname}}</td>
         <td>{{user.username}}</td>
         <td>{{user.gender}}</td>
-        <td>{{user.jobs}}</td>
+        <div>
+            <ul *ngFor="let job of user.jobs; let isLast=last">
+              <li>
+                {{job.team.groupname}} | {{job.role.rolename}}
+              </li>
+            </ul>
+        </div>
+        <!-- <td>{{user.team}}</td> -->
         <td><button type="button" class="btn btn-success"  (click)="updateUser(user)"  routerLinkActive="active" >Edit</button> &nbsp;<button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button> </td>
       </tr>
     </tbody>

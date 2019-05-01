@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HardcodedAuthenticationService } from 'src/app/services/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
+  //isUserLoggedIn: boolean = false;
+  constructor(private hardcodedAuthenticationService: HardcodedAuthenticationService) { }
 
   ngOnInit() {
+    //this.isUserLoggedIn = this.hardcodedAuthenticationService.isUserLoggedIn();
   }
 
 }

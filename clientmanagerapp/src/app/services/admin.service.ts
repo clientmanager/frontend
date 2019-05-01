@@ -33,6 +33,10 @@ export class AdminService {
     return this._httpService.get<User[]>("http://localhost:9000/user");
   }
 
+  getUserById(userId: Number){
+    return this._httpService.get("http://localhost:9000/user/" + userId);
+  }
+
   createUser(user: User){
     let body = JSON.stringify(user);
     //let headers = new HttpHeaders
@@ -95,7 +99,7 @@ export class AdminService {
         'Authorization': 'my-auth-token'
       })
     };
-    return this._httpService.post("http://localhost:9000/permission", body, httpOptions);
+    return this._httpService.put("http://localhost:9000/permission", body, httpOptions);
   }
 
   deletePermission(permission_id: Number){
@@ -202,6 +206,10 @@ getAllTeams(): Observable<Team[]>{
   return this._httpService.get<Team[]>("http://localhost:9000/team");
 }
 
+getAllTeamMembers(teamName: string ): Observable<User[]>{
+  return this._httpService.get<User[]>("http://localhost:9000/user/search/teamName/" + teamName);
+}
+
 createTeam(team: Team){
   let body = JSON.stringify(team);
   const httpOptions = {
@@ -226,5 +234,19 @@ updateTeam(team: Team){
 
 deleteTeam(team_id: Number){
   return this._httpService.delete("http://localhost:9000/team/" + team_id);
+}
+
+/********************
+  Jobs
+*********************/
+createJob(user_id: Number, team_id: Number, role_id: Number) {
+  let body = JSON.stringify("");
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'my-auth-token'
+    })
+  };
+  return this._httpService.post("http://localhost:9000/user/" + user_id + "/" + team_id + "/" + role_id, body, httpOptions); 
 }
 }

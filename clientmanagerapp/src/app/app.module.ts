@@ -34,34 +34,38 @@ import { ManageTeamsViewMembersAddComponent } from './components/manage-teams-vi
 import { AdminService } from './services/admin.service';
 import { ManageRolesViewPermissionsComponent } from './components/manage-roles-view-permissions/manage-roles-view-permissions.component';
 import { ManageTeamsViewPermissionsComponent } from './components/manage-teams-view-permissions/manage-teams-view-permissions.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { RouteGuardService } from './services/route-guard.service';
 
 const appRoutes: Routes = [
-  { path:"home", component: LoginComponent },
-  { path:"user", component: UserDashboardComponent },
-  { path:"admin", component: AdminDashboardComponent },
-  { path:"logout", component: LogoutComponent },
+  { path: '', component: WelcomeComponent},
+  // { path:"home", component: WelcomeComponent },
+  { path:"home/:name", component: WelcomeComponent,  },
+  { path:"user", component: UserDashboardComponent,  },
+  { path:"admin", component: AdminDashboardComponent,  },
+  { path:"logout", component: LogoutComponent,  },
   { path: "login", component: LoginComponent},
-  { path:"manage-users", component: ManageUsersComponent},
-  { path:"manage-user-add-form", component: ManageUsersAddFormComponent },
-  { path:"manage-user-edit-form", component: ManageUsersEditFormComponent },
-  { path:"manage-permissions", component: ManagePermissionsComponent },
-  { path:"manage-permissions-add-form", component: ManagePermissionsAddFormComponent },
-  { path:"manage-permissions-edit-form", component: ManagePermissionsEditFormComponent },
-  { path:"manage-roles", component: ManageRolesComponent  },
-  { path:"manage-roles-add-form", component: ManageRolesAddFormComponent  },
-  { path:"manage-roles-edit-form", component: ManageRolesEditFormComponent},
-  { path:"manage-roles-view-permissions", component: ManageRolesViewPermissionsComponent },
-  { path:"manage-teams", component: ManageTeamsComponent},
-  { path:"manage-teams-add-form", component: ManageTeamsAddFormComponent},
-  { path:"manage-teams-edit-form", component: ManageTeamsEditFormComponent},
-  { path:"manage-teams-view-members", component: ManageTeamsViewMembersComponent},
-  { path:"manage-teams-view-members-add", component: ManageTeamsViewMembersAddComponent},
-  { path:"manage-teams-view-permissions", component: ManageTeamsViewPermissionsComponent},
-  { path:"user-view-profile", component: UserDashboardViewProfileComponent},
-  { path:"user-view-teams", component: UserDashboardViewTeamsComponent},
-  { path:"user-edit-profile", component: UserDashboardEditProfileComponent},
-  { path:"user-view-teams-details", component: UserDashboardViewTeamsDetailsComponent}
-  //{ path:"**", component: NotFoundComponent}
+  { path:"manage-users", component: ManageUsersComponent, },
+  { path:"manage-user-add-form", component: ManageUsersAddFormComponent,  },
+  { path:"manage-user-edit-form", component: ManageUsersEditFormComponent,  },
+  { path:"manage-permissions", component: ManagePermissionsComponent,  },
+  { path:"manage-permissions-add-form", component: ManagePermissionsAddFormComponent,  },
+  { path:"manage-permissions-edit-form", component: ManagePermissionsEditFormComponent,  },
+  { path:"manage-roles", component: ManageRolesComponent,   },
+  { path:"manage-roles-add-form", component: ManageRolesAddFormComponent,   },
+  { path:"manage-roles-edit-form", component: ManageRolesEditFormComponent, },
+  { path:"manage-roles-view-permissions", component: ManageRolesViewPermissionsComponent,  },
+  { path:"manage-teams", component: ManageTeamsComponent, },
+  { path:"manage-teams-add-form", component: ManageTeamsAddFormComponent, },
+  { path:"manage-teams-edit-form", component: ManageTeamsEditFormComponent, },
+  { path:"manage-teams-view-members", component: ManageTeamsViewMembersComponent, },
+  { path:"manage-teams-view-members-add", component: ManageTeamsViewMembersAddComponent, },
+  { path:"manage-teams-view-permissions", component: ManageTeamsViewPermissionsComponent, },
+  { path:"user-view-profile", component: UserDashboardViewProfileComponent, },
+  { path:"user-view-teams", component: UserDashboardViewTeamsComponent, },
+  { path:"user-edit-profile", component: UserDashboardEditProfileComponent, },
+  { path:"user-view-teams-details", component: UserDashboardViewTeamsDetailsComponent, },
+  { path:"**", component: NotFoundComponent}
 ];
 
 @NgModule({
@@ -93,7 +97,8 @@ const appRoutes: Routes = [
     ManageTeamsViewMembersComponent,
     ManageTeamsViewMembersAddComponent,
     ManageRolesViewPermissionsComponent,
-    ManageTeamsViewPermissionsComponent
+    ManageTeamsViewPermissionsComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
