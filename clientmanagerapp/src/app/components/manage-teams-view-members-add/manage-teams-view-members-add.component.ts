@@ -66,6 +66,7 @@ export class ManageTeamsViewMembersAddComponent implements OnInit {
     this.getUserById(searchId);
   }
 
+
   createJob(userId, teamId): void{
     // alert(userId + " " + teamId + " " + this.selectedRoleId);
     this.service.createJob(userId, teamId, this.selectedRoleId)

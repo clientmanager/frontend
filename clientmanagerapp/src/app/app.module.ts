@@ -40,7 +40,7 @@ import { RouteGuardService } from './services/route-guard.service';
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent},
   // { path:"home", component: WelcomeComponent },
-  { path:"home/:name", component: WelcomeComponent,  },
+  { path:"home", component: WelcomeComponent,  },
   { path:"user", component: UserDashboardComponent,  },
   { path:"admin", component: AdminDashboardComponent,  },
   { path:"logout", component: LogoutComponent,  },
