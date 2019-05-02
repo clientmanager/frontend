@@ -3,33 +3,39 @@
     <div class="container-wrapper container d-flex justify-content-center align-items-center login-spacing">
         <div class="form-wrapper text-center">
           <h2 class="text-center">Edit Permission</h2>
-          <form>
-            <div class="form-group">
-              <input type="hidden" class="form-control" [(ngModel)]="permission.id" id="id" name="id" placeholder="Enter ID">
-            </div>
-  
-            <div class="form-group">
-              <input type="text" class="form-control" [(ngModel)]="permission.permissionname" id="permissionname" name="permissionname" placeholder="Enter Name">
-            </div>
-  
-            <div class="form-group">
-                <textarea class="form-control" [(ngModel)]="permission.description" id="description" name="description" placeholder="Enter Description" rows="3"></textarea>
-            </div>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">Permission Types</label>
+          <form name="form" #f="ngForm" (ngSubmit)="f.valid && updatePermission()" novalidate>
+              <div class="form-group">
+                <input type="hidden" class="form-control" [(ngModel)]="permission.id" id="id" name="id" placeholder="Enter ID">
               </div>
-              <select class="custom-select" [(ngModel)]="permission.permissiontype" id="permissiontype" name="permissiontype">
-                <option class="dropdown-item" value="ROLE">Role</option>
-                <option class="dropdown-item" value="GROUP">Group</option>
-              </select>
-            </div>
     
-            <div class="add-button">
-              <button type="submit" class="btn btn-primary" (click)="updatePermission()">Submit</button>
-            </div>
-          </form>
+              <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="permission.permissionname" #permissionname="ngModel" [ngClass]="{'is-invalid': f.submitted && permissionname.invalid}" id="permissionname" name="permissionname" placeholder="Enter Name*" required>
+                <div class="invalid-feedback">
+                  <div>Permission Name is Required</div>
+                </div>
+              </div>
+    
+              <div class="form-group">
+                  <textarea class="form-control" [(ngModel)]="permission.description" #description="ngModel" [ngClass]="{'is-invalid': f.submitted && description.invalid}" id="description" name="description" placeholder="Enter Description*" rows="3" required></textarea>
+                  <div class="invalid-feedback">
+                    <div>Permission Description is Required</div>
+                  </div>
+                </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Permission Types</label>
+                </div>
+                <select class="custom-select" [(ngModel)]="permission.permissiontype" id="permissiontype" name="permissiontype">
+                  <option class="dropdown-item" value="ROLE">ROLE</option>
+                  <option class="dropdown-item" value="GROUP">GROUP</option>
+                </select>
+              </div>
+              
+              <div class="add-button">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
         </div>
       </div>
   

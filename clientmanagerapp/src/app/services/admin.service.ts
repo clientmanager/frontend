@@ -14,8 +14,21 @@ export class AdminService {
   private permission = new Permission();
   private role = new Role();
   private team = new Team();
+  private previousPage = "";
 
   constructor(private _httpService: HttpClient) { }
+
+  /********************
+    PAGE NAVIGATION
+  *********************/
+
+  previousPageSetter(previousPage: string){
+    this.previousPage = previousPage;
+  }
+
+  previousPageGetter(){
+    return this.previousPage;
+  }
 
   /********************
     USERS

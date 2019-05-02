@@ -24,6 +24,7 @@ export class ManagePermissionsEditFormComponent implements OnInit {
       }, (error) =>{
         console.log(error);
       });
+    this.service.previousPageSetter('permission');
     this._router.navigate(['/admin']);
   }
 }

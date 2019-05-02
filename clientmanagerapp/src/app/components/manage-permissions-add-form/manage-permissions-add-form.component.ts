@@ -9,7 +9,8 @@ import { Permission } from '../../sharedclasses/permission';
   styleUrls: ['./manage-permissions-add-form.component.css']
 })
 export class ManagePermissionsAddFormComponent implements OnInit {
-  permission = new Permission();
+
+  permission:any = {permissiontype: "ROLE"};
 
   constructor(private service: AdminService, private _router: Router) { }
 
@@ -23,6 +24,7 @@ export class ManagePermissionsAddFormComponent implements OnInit {
       }, (error) =>{
         console.log(error);
       });
+    this.service.previousPageSetter('permission');
     this._router.navigate(['/admin']);
   }
 

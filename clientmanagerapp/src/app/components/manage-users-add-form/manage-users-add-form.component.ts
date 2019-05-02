@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./manage-users-add-form.component.css']
 })
 export class ManageUsersAddFormComponent implements OnInit {
-  user = new User();
+  model:any = {};
+  // user = new User();
+  user:any = {gender: "M"};
 
   constructor(private service: AdminService, private _router: Router) { }
 
@@ -23,6 +25,7 @@ export class ManageUsersAddFormComponent implements OnInit {
       }, (error) =>{
         console.log(error);
       });
+    this.service.previousPageSetter('user');
     this._router.navigate(['/admin']);
   }
 

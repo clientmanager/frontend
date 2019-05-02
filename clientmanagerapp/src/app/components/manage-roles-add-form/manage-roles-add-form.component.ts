@@ -10,7 +10,7 @@ import { Permission } from '../../sharedclasses/permission';
   styleUrls: ['./manage-roles-add-form.component.css']
 })
 export class ManageRolesAddFormComponent implements OnInit {
-  role = new Role();
+  role:any = {roletype: "SYSTEM"};
   permission = new Permission();
   public permissions = [];
   constructor(private service: AdminService, private _router: Router) { }
@@ -26,6 +26,7 @@ export class ManageRolesAddFormComponent implements OnInit {
       }, (error) =>{
         console.log(error);
       });
+    this.service.previousPageSetter('role');
     this._router.navigate(['/admin']);
   }
 

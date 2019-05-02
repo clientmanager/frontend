@@ -10,7 +10,7 @@ import { Permission } from '../../sharedclasses/permission';
   styleUrls: ['./manage-roles-edit-form.component.css']
 })
 export class ManageRolesEditFormComponent implements OnInit {
-  role = new Role();
+  role:any = {};
   permission = new Permission();
   public permissions = [];
 
@@ -18,6 +18,7 @@ export class ManageRolesEditFormComponent implements OnInit {
 
   ngOnInit() {
     this.role = this.service.roleGetter();
+    //this.role = {active: this.role.active};
     this.getAllPermissions();
   }
 
@@ -28,6 +29,7 @@ export class ManageRolesEditFormComponent implements OnInit {
       }, (error) =>{
         console.log(error);
       });
+    this.service.previousPageSetter('role');
     this._router.navigate(['/admin']);
   }
 

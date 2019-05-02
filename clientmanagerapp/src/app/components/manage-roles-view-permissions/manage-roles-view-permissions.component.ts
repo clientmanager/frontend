@@ -37,6 +37,7 @@ export class ManageRolesViewPermissionsComponent implements OnInit {
   addRolePermission(role_id: Number, permission_id: Number): void{
     this.service.addRolePermission(role_id, permission_id)
       .subscribe((response)=>{
+        this.service.previousPageSetter('role');
         this._router.navigate(["/admin"]);
         console.log(response);
       }, (error) =>{
@@ -47,6 +48,7 @@ export class ManageRolesViewPermissionsComponent implements OnInit {
   removeRolePermission(role_id: Number, permission_id: Number): void{
     this.service.removeRolePermission(role_id, permission_id)
       .subscribe((response)=>{
+        this.service.previousPageSetter('role');
         this._router.navigate(["/admin"]);
         console.log(response);
       }, (error) =>{

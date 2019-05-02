@@ -24,6 +24,7 @@ export class ManageUsersEditFormComponent implements OnInit {
       }, (error) =>{
         console.log(error);
       });
+    this.service.previousPageSetter('user');
     this._router.navigate(['/admin']);
   }
 }

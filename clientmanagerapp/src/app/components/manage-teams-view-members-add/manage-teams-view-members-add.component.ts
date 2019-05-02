@@ -74,6 +74,7 @@ export class ManageTeamsViewMembersAddComponent implements OnInit {
     }, (error) =>{
       console.log(error);
     });
+  this.service.previousPageSetter('team');
   this._router.navigate(['/admin']);
   }
 
